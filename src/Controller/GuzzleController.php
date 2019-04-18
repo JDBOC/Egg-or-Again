@@ -12,10 +12,7 @@ use GuzzleHttp\Client;
 
 class GuzzleController extends AbstractController
 {
-    /**
-     * @return mixed
-     * @throws
-     */
+
     public function allEggs()
     {
         $client = new Client(['base_uri' => 'http://easteregg.wildcodeschool.fr/api/',]);
@@ -28,11 +25,7 @@ class GuzzleController extends AbstractController
         return $eggs;
     }
 
-    /**
-     * @param $id
-     * @return mixed
-     * @throws
-     */
+
     public function eggId($id)
     {
         $client = new Client(['base_uri' => 'http://easteregg.wildcodeschool.fr/api/',]);
@@ -45,10 +38,7 @@ class GuzzleController extends AbstractController
         return $eggs;
     }
 
-    /**
-     * @return mixed
-     * @throws
-     */
+
     public function eggRandom()
     {
         $client = new Client(['base_uri' => 'http://easteregg.wildcodeschool.fr/api/',]);
@@ -61,10 +51,7 @@ class GuzzleController extends AbstractController
         return $eggs;
     }
 
-    /**
-     * @return mixed
-     * @throws
-     */
+
     public function allCharacters()
     {
         $client = new Client(['base_uri' => 'http://easteregg.wildcodeschool.fr/api/',]);
@@ -77,11 +64,7 @@ class GuzzleController extends AbstractController
         return $eggs;
     }
 
-    /**
-     * @param $id
-     * @return mixed
-     * @throws
-     */
+
     public function characterId($id)
     {
         $client = new Client(['base_uri' => 'http://easteregg.wildcodeschool.fr/api/',]);
@@ -94,10 +77,7 @@ class GuzzleController extends AbstractController
         return $eggs;
     }
 
-    /**
-     * @return mixed
-     * @throws
-     */
+
     public function characterRandom()
     {
         $client = new Client(['base_uri' => 'http://easteregg.wildcodeschool.fr/api/',]);
@@ -109,7 +89,4 @@ class GuzzleController extends AbstractController
 
         return $eggs;
     }
-
-
-
 }
