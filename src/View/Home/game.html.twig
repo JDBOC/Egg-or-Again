@@ -1,0 +1,63 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Eggs Or Again{% endblock %}
+{% block stylesheet %}
+<link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
+<link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block content %}
+<style>
+    .box-img-player-1 {
+        background: url("https://images.innoveduc.fr/easter_hackathon/4262699-a86be31143ba35176665964cfa29516a-d5qg94n.jpg");
+        background-size: 125px 150px;
+        background-repeat:no-repeat;
+    }
+    .box-img-player-2 {
+        background: url("https://images.innoveduc.fr/easter_hackathon/4262699-a86be31143ba35176665964cfa29516a-d5qg94n.jpg");
+        background-size: 125px 150px;
+        background-repeat:no-repeat;
+    }
+
+</style>
+
+
+<div class="main clearfix">
+    <form action="" method="post">
+        <div class="player-1-left {% if session.player == "player_1" %} active {% endif %}"><!-- TODO TWIG ACTIVE CLASS ?-->
+            <div class="player-name" id="name-0">Player 1</div>
+            <div class="player-score" id="score-0">
+                {% if session.player == "player_1" %} {{session.intermediateCounter}} {% endif %}
+            </div>
+            <div class="box-img-player-1"></div>
+            <div class="panier-box box-player-1">
+                <div class="panier">Pannier</div>
+                <div class="score" id="score-ingame-player-1">{{session.player1}}</div>
+            </div>
+        </div>
+        
+        <div class="player-2-right {% if session.player == "player_2" %} active {% endif %}"><!-- TODO TWIG ACTIVE CLASS ?-->
+            <div class="player-name" id="name-1">Player 2</div>
+            <div class="player-score" id="score-1">
+                {% if session.player == "player_2" %} {{session.intermediateCounter}} {% endif %}
+            </div>
+            <div class="panier-box box-player-2">
+                <div class="panier">Panier</div>
+                <div class="score" id="score-ingame-player-2">{{session.player2}}</div>
+            </div>
+            <div class="box-img-player-2"></div>
+        </div>
+        
+        <button class="btn-play" name="play" value="true"><i class="ion-ios-loop"></i>Roll Eggs</button>
+        <button class="btn-hold" name="hold" value="true"><i class="ion-ios-download-outline"></i>Hold</button>
+        
+
+        <img src="{{egg.image}}" alt="image" class="image" id="image">
+        <p class="egg-name">{{egg.name}}</p>
+        <p class="egg-point">{{egg.rarityValue}}</p>
+
+    </form>
+    
+    <!-- https://cdn.shopify.com/s/files/1/0993/5182/products/CXBO_Chocolate_Disco_Egg_large.png?v=1519913456 -->
+</div>
+{% endblock %}
+{% block javascript %}{% endblock %}
