@@ -9,6 +9,7 @@
 namespace App\Controller;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\GuzzleException;
 
 class GuzzleController extends AbstractController
 {
@@ -58,10 +59,10 @@ class GuzzleController extends AbstractController
 
         $response = $client->request('GET', 'characters/');
         $body = $response->getBody();
-        $eggs=json_decode($body->getContents());
+        $chars=json_decode($body->getContents());
 
 
-        return $eggs;
+        return $chars;
     }
 
 
@@ -71,10 +72,10 @@ class GuzzleController extends AbstractController
         $uri='character/'.$id;
         $response = $client->request('GET', $uri);
         $body = $response->getBody();
-        $eggs=json_decode($body->getContents());
+        $chars=json_decode($body->getContents());
 
 
-        return $eggs;
+        return $chars;
     }
 
 
@@ -84,9 +85,9 @@ class GuzzleController extends AbstractController
 
         $response = $client->request('GET', 'characters/random');
         $body = $response->getBody();
-        $eggs=json_decode($body->getContents());
+        $chars=json_decode($body->getContents());
 
 
-        return $eggs;
+        return $chars;
     }
 }
