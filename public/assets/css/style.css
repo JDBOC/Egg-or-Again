@@ -1,0 +1,25 @@
+.JDrow1 {
+background-color: darkkhaki;
+padding: 5%;
+}
+
+.JDrow2 {
+  background-color: coral;
+  padding: 5%;
+} 
+
+.JDcont {
+  background-color: black;
+}
+
+.row {
+
+
+  justify-content: space-between;
+}
+
+.JDcard {
+  margin-block-start: 5%;
+  margin-bottom : 3%;
+  border: 2px solid;
+}
