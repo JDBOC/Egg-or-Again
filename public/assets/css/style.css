@@ -167,7 +167,7 @@ i {
     position: absolute;
     left:50%;
     top: 270px;
-    color: #555;;
+    color: #555;
     transform: translateX(-50%);
     text-transform: uppercase;
 }
@@ -179,4 +179,18 @@ i {
     color:#555;
     transform: translateX(-50%);
     text-transform: uppercase;
+}
+
+.pacity0{
+    opacity: 0;
+}
+
+#winner{
+    height: 97vh;
+    width: 1000px;
+    background-color: rgb(87,189,130);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }

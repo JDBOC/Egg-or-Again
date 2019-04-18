@@ -22,23 +22,33 @@
 
 
 <div class="main clearfix">
-    <form action="" method="get">
-        <div class="player-1-left active"><!-- TODO TWIG ACTIVE CLASS ?-->
+    <form action="" method="post">
+        <div class="player-1-left {% if session.player == "player_1" %} active {% endif %}"><!-- TODO TWIG ACTIVE CLASS ?-->
             <div class="player-name" id="name-0">Player 1</div>
-            <div class="player-score" id="score-0">38</div>
+            <div class="player-score
+                {% if session.player == "player_2" %} pacity0 {% endif %}
+                " id="score-0">
+                {% if session.player == "player_1" %} {{session.intermediateCounter}}  {% endif %}
+                    {% if session.player == "player_2" %} 0 {% endif %}
+            </div>
             <div class="box-img-player-1"></div>
             <div class="panier-box box-player-1">
                 <div class="panier">Pannier</div>
-                <div class="score" id="score-ingame-player-1">10</div>
+                <div class="score" id="score-ingame-player-1">{{session.player1}}</div>
             </div>
         </div>
         
-        <div class="player-2-right"><!-- TODO TWIG ACTIVE CLASS ?-->
+        <div class="player-2-right {% if session.player == "player_2" %} active {% endif %}"><!-- TODO TWIG ACTIVE CLASS ?-->
             <div class="player-name" id="name-1">Player 2</div>
-            <div class="player-score" id="score-1">72</div>
+            <div class="player-score
+                {% if session.player == "player_1" %} pacity0 {% endif %}
+                " id="score-1">
+                {% if session.player == "player_2" %} {{session.intermediateCounter}}  {% endif %}
+                    {% if session.player == "player_1" %} 0 {% endif %}
+            </div>
             <div class="panier-box box-player-2">
                 <div class="panier">Panier</div>
-                <div class="score" id="score-ingame-player-2">0</div>
+                <div class="score" id="score-ingame-player-2">{{session.player2}}</div>
             </div>
             <div class="box-img-player-2"></div>
         </div>
@@ -47,9 +57,9 @@
         <button class="btn-hold" name="hold" value="true"><i class="ion-ios-download-outline"></i>Hold</button>
         
 
-        <img src="https://cdn.shopify.com/s/files/1/0993/5182/products/CXBO_Chocolate_Disco_Egg_large.png?v=1519913456" alt="image" class="image" id="image">
-        <p class="egg-name">Egg of Tuna</p>
-        <p class="egg-point">+ 8</p>
+        <img src="{{egg.image}}" alt="image" class="image" id="image">
+        <p class="egg-name">{{egg.name}}</p>
+        <p class="egg-point">{{egg.rarityValue}}</p>
 
     </form>
     
