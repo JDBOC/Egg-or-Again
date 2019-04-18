@@ -9,7 +9,6 @@
 
 namespace App\Controller;
 
-
 use Twig\Environment;
 use Twig\Extension\DebugExtension;
 use Twig\Loader\FilesystemLoader;
@@ -40,4 +39,5 @@ abstract class AbstractController
         );
         $this->twig->addExtension(new DebugExtension());
     }
+
 }

@@ -1,0 +1,7 @@
+/vendor/
+/temp/*
+.phpcs-cache
+*.cache
+config/db.php
+.idea/
+.idea/workspace.xml
