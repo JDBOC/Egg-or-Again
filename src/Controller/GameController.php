@@ -51,11 +51,17 @@ class GameController extends GuzzleController
                     // ajoute la valeur au compteur secondaire
                     $_SESSION['intermediateCounter']+= self::RARITY_VALUE[$egg->rarity];
                 }
+                $perso1=$this->characterId($_SESSION['perso1']);
+                $perso2=$this->characterId($_SESSION['perso2']);
                 return $this->twig->render('Home/game.html.twig', ['session' => $_SESSION,
-                                                                    'egg'=>$egg]);
+                                                                    'egg'=>$egg,
+                                                            'perso1' =>$perso1,
+                                                            'perso2' =>$perso2]);
             }
             if (isset($_POST['hold']) && $_POST['hold']== true) {
                 // ajoute le compteur secondaire au compteur principal
+                $perso1=$this->characterId($_SESSION['perso1']);
+                $perso2=$this->characterId($_SESSION['perso2']);
                 $_SESSION['player']== "player_1" ? $_SESSION['player1']+= $_SESSION['intermediateCounter']
                                                 : $_SESSION['player2']+= $_SESSION['intermediateCounter'];
                 //Vérifie si le compteur principal atteint 100
@@ -65,10 +71,14 @@ class GameController extends GuzzleController
                 }
 
                 // init le compteur secondaire de l'autre joueur, affiche le joueur suivant
+                $perso1=$this->characterId($_SESSION['perso1']);
+                $perso2=$this->characterId($_SESSION['perso2']);
                 $_SESSION['intermediateCounter'] = 0;
                 $_SESSION['player'] == "player_1"?$_SESSION['player'] = 'player_2'
                                                 :$_SESSION['player'] = 'player_1';
-                return $this->twig->render('Home/game.html.twig', ['session' => $_SESSION]);
+                return $this->twig->render('Home/game.html.twig', ['session' => $_SESSION,
+                                                            'perso1' =>$perso1,
+                                                            'perso2' =>$perso2]);
             }
         }
         // ici c'est le 1er round
@@ -76,8 +86,16 @@ class GameController extends GuzzleController
         $_SESSION['intermediateCounter'] = 0;
         $_SESSION['player1']=0;
         $_SESSION['player2']=0;
-
-        return $this->twig->render('Home/game.html.twig', ['session' => $_SESSION]);
+        $_SESSION['username1']="Kevin";
+        $_SESSION['username2']="JDBOC";
+        $_SESSION['perso1']="5cac51240d488f0da6151c31";
+        $_SESSION['perso2']="5cac51240d488f0da6151c32";
+        $perso1=$this->characterId($_SESSION['perso1']);
+        $perso2=$this->characterId($_SESSION['perso2']);
+        var_dump($_SESSION['perso1']);
+        return $this->twig->render('Home/game.html.twig', ['session' => $_SESSION,
+                                                            'perso1' =>$perso1,
+                                                            'perso2' =>$perso2]);
         ;
     }
 }

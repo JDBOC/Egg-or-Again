@@ -8,12 +8,12 @@
 {% block content %}
 <style>
     .box-img-player-1 {
-        background: url("https://images.innoveduc.fr/easter_hackathon/4262699-a86be31143ba35176665964cfa29516a-d5qg94n.jpg");
+        background-image: url("{{ perso1.image }}");
         background-size: 125px 150px;
         background-repeat:no-repeat;
     }
     .box-img-player-2 {
-        background: url("https://images.innoveduc.fr/easter_hackathon/4262699-a86be31143ba35176665964cfa29516a-d5qg94n.jpg");
+        background-image: url("{{ perso2.image }}");
         background-size: 125px 150px;
         background-repeat:no-repeat;
     }
@@ -24,7 +24,7 @@
 <div class="main clearfix">
     <form action="" method="post">
         <div class="player-1-left {% if session.player == "player_1" %} active {% endif %}"><!-- TODO TWIG ACTIVE CLASS ?-->
-            <div class="player-name" id="name-0">Player 1</div>
+            <div class="player-name" id="name-0">{{session.username1}}</div>
             <div class="player-score
                 {% if session.player == "player_2" %} pacity0 {% endif %}
                 " id="score-0">
@@ -39,7 +39,7 @@
         </div>
         
         <div class="player-2-right {% if session.player == "player_2" %} active {% endif %}"><!-- TODO TWIG ACTIVE CLASS ?-->
-            <div class="player-name" id="name-1">Player 2</div>
+            <div class="player-name" id="name-1">{{session.username2}}  </div>
             <div class="player-score
                 {% if session.player == "player_1" %} pacity0 {% endif %}
                 " id="score-1">
@@ -57,7 +57,7 @@
         <button class="btn-hold" name="hold" value="true"><i class="ion-ios-download-outline"></i>Hold</button>
         
 
-        <img src="{{egg.image}}" alt="image" class="image" id="image">
+        <img src="{{egg.image}}" alt="" class="image" id="image">
         <p class="egg-name">{{egg.name}}</p>
         <p class="egg-point">{{egg.rarityValue}}</p>
 

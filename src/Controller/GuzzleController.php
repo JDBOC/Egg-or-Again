@@ -68,7 +68,7 @@ class GuzzleController extends AbstractController
     public function characterId($id)
     {
         $client = new Client(['base_uri' => 'http://easteregg.wildcodeschool.fr/api/',]);
-        $uri='character/'.$id;
+        $uri='characters/'.$id;
         $response = $client->request('GET', $uri);
         $body = $response->getBody();
         $chars=json_decode($body->getContents());
