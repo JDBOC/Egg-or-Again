@@ -17,7 +17,8 @@ use App\Model\ItemManager;
  */
 class GameController extends GuzzleController
 {
-    const     RARITY_VALUE =['basic'=>1,
+    const     RARITY_VALUE =['junk'=>0,
+                        'basic'=>1,
                         'fine' =>2,
                         'masterwork' =>3,
                         'rare'=>5,
@@ -57,6 +58,12 @@ class GameController extends GuzzleController
                 // ajoute le compteur secondaire au compteur principal
                 $_SESSION['player']== "player_1" ? $_SESSION['player1']+= $_SESSION['intermediateCounter']
                                                 : $_SESSION['player2']+= $_SESSION['intermediateCounter'];
+                //Vérifie si le compteur principal atteint 100
+                if($_SESSION['player1']>99 || $_SESSION['player2']>99){
+                    $_SESSION['player1']>99 ? $_SESSION['winner'] = "player 1" : $_SESSION['winner'] = "player 2";
+                    return $this->twig->render('Home/win.html.twig', ['session' => $_SESSION]);
+                }
+
                 // init le compteur secondaire de l'autre joueur, affiche le joueur suivant
                 $_SESSION['intermediateCounter'] = 0;
                 $_SESSION['player'] == "player_1"?$_SESSION['player'] = 'player_2'
@@ -69,6 +76,7 @@ class GameController extends GuzzleController
         $_SESSION['intermediateCounter'] = 0;
         $_SESSION['player1']=0;
         $_SESSION['player2']=0;
+
         return $this->twig->render('Home/game.html.twig', ['session' => $_SESSION]);
         ;
     }
