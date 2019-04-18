@@ -59,7 +59,7 @@ class GameController extends GuzzleController
                 $_SESSION['player']== "player_1" ? $_SESSION['player1']+= $_SESSION['intermediateCounter']
                                                 : $_SESSION['player2']+= $_SESSION['intermediateCounter'];
                 //Vérifie si le compteur principal atteint 100
-                if($_SESSION['player1']>99 || $_SESSION['player2']>99){
+                if ($_SESSION['player1']>99 || $_SESSION['player2']>99) {
                     $_SESSION['player1']>99 ? $_SESSION['winner'] = "player 1" : $_SESSION['winner'] = "player 2";
                     return $this->twig->render('Home/win.html.twig', ['session' => $_SESSION]);
                 }
