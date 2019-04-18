@@ -2733,9 +2733,14 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
+<<<<<<< HEAD
+        "php": ">=7.1",
+        "ext-pdo": "*"
+=======
         "php": ">=7.2",
         "ext-pdo": "*",
         "ext-json": "^1.6"
+>>>>>>> 87b7cc1d4ae4eaffa334b5e116d28d3f25d576dc
     },
     "platform-dev": []
 }

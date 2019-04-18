@@ -9,7 +9,6 @@
 namespace App\Controller;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Exception\GuzzleException;
 
 class GuzzleController extends AbstractController
 {
