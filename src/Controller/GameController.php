@@ -17,8 +17,7 @@ use App\Model\ItemManager;
  */
 class GameController extends GuzzleController
 {
-
-    const RARITY_VALUE=['basic'=>1,
+    const     RARITY_VALUE =['basic'=>1,
                         'fine' =>2,
                         'masterwork' =>3,
                         'rare'=>5,
@@ -36,48 +35,41 @@ class GameController extends GuzzleController
     public function index()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if ($_POST['play']) {
+            if (isset($_POST['play']) && $_POST['play']== true) {
                 // récupérer un oeuf
                 $egg=$this->eggRandom();
+                $egg->rarityValue = self::RARITY_VALUE[$egg->rarity];
                 //si junk
-                if ($egg['rarity'] == "junk") {
+                if ($egg->rarity == "junk") {
                     // affiche la vue avec oeuf perdant et passage au joueur suivant
                         // ( init compteur secondaire de l'autre joueur)
                     $_SESSION['intermediateCounter']=0;
-                    $_SESSION['player'] == "player1"?$_SESSION['player'] = 'player2'
-                                                    :$_SESSION['player'] = 'player1';
+                    $_SESSION['player'] == "player_1"?$_SESSION['player'] = 'player_2'
+                                                    :$_SESSION['player'] = 'player_1';
                 } else {//sinon
                     // ajoute la valeur au compteur secondaire
-                    $_SESSION['intermediateCounter']+= RARITY_VALUE[$egg['rarity']];
+                    $_SESSION['intermediateCounter']+= self::RARITY_VALUE[$egg->rarity];
                 }
-                return $this->twig->render('Item/index.html.twig', ['session' => $_SESSION,
+                return $this->twig->render('Home/game.html.twig', ['session' => $_SESSION,
                                                                     'egg'=>$egg]);
             }
-            if ($_POST['hold']) {
+            if (isset($_POST['hold']) && $_POST['hold']== true) {
                 // ajoute le compteur secondaire au compteur principal
-                $_SESSION['player']== "player1" ? $_SESSION['player1']+= $_SESSION['intermediateCounter']
+                $_SESSION['player']== "player_1" ? $_SESSION['player1']+= $_SESSION['intermediateCounter']
                                                 : $_SESSION['player2']+= $_SESSION['intermediateCounter'];
                 // init le compteur secondaire de l'autre joueur, affiche le joueur suivant
                 $_SESSION['intermediateCounter'] = 0;
-                $_SESSION['player'] == "player1"?$_SESSION['player'] = 'player2'
-                                                :$_SESSION['player'] = 'player1';
-                return $this->twig->render('Item/index.html.twig', ['session' => $_SESSION]);
+                $_SESSION['player'] == "player_1"?$_SESSION['player'] = 'player_2'
+                                                :$_SESSION['player'] = 'player_1';
+                return $this->twig->render('Home/game.html.twig', ['session' => $_SESSION]);
             }
         }
         // ici c'est le 1er round
-        $_SESSION['player'] = "player1";
+        $_SESSION['player'] = "player_1";
         $_SESSION['intermediateCounter'] = 0;
         $_SESSION['player1']=0;
         $_SESSION['player2']=0;
-        return $this->twig->render('Item/index.html.twig', ['session' => $_SESSION]);
+        return $this->twig->render('Home/game.html.twig', ['session' => $_SESSION]);
         ;
-    }
-
-    private function eggValue($rarity)
-    {
-        switch ($rarity) {
-            case 'basic':
-                return 1;
-        }
     }
 }
