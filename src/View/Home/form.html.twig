@@ -1,0 +1,99 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Eggs Or Again{% endblock %}
+{% block stylesheet %}
+<link rel="stylesheet" href="/assets/css/form.css">
+{# <link rel="stylesheet" href="/assets/css/style.css"> #}
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
+<link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+{% endblock %}
+{% block content %}
+<style>
+.perso1 {
+background-image: url('https://images.innoveduc.fr/easter_hackathon/4262699-a86be31143ba35176665964cfa29516a-d5qg94n.jpg');
+width:100px;
+}
+  
+.perso2 {
+    background-image: url('https://images.innoveduc.fr/easter_hackathon/4262699-a86be31143ba35176665964cfa29516a-d5qg94n.jpg');
+}
+
+.perso3 {
+    background-image: url('https://images.innoveduc.fr/easter_hackathon/4262699-a86be31143ba35176665964cfa29516a-d5qg94n.jpg');
+}
+  
+.Perso4 {
+    background-image: url('https://images.innoveduc.fr/easter_hackathon/4262699-a86be31143ba35176665964cfa29516a-d5qg94n.jpg');
+}
+</style>
+
+<div class="main clearfix" id="main">
+    <form action="" method="get">
+
+        <div id="form1" class="active">
+            <div class="input-title">PLAYER 1 <br/> choose your username</div>
+            <div class="field-name">
+                {# <div class="field-title">PLAYER 1</div> #}
+                <i class="fas fa-user"></i>
+                <input type="text" name="username" id="" placeholder="Player 1">
+                <i class="fas fa-arrow-down"></i>
+            </div>
+        </div>
+
+        <div id="form2" class="inactive">
+                <div class="input-title">PLAYER 2 <br/> choose your username</div>
+            <div class="field-name">
+                {# <div class="field-title">PLAYER 2</div> #}
+                <i class="fas fa-user"></i>
+                <input type="text" name="username" id="" placeholder="Player 2">
+                <i class="fas fa-arrow-down"></i>
+            </div>
+        </div>
+
+        <div id="form3" class="inactive">
+            <div class="player1-name">
+                <p class="input-title">PLAYER 1 : Choose your personage </p>
+                <div class="cc-selector">
+                    <input id="id1" type="radio" name="perso1" value="id1" />
+                    <label class="drinkcard-cc id1 fa-arrow-down" for="id1"></label>
+                    <input id="id1" type="radio" name="perso1" value="id1" />
+                    <label class="drinkcard-cc id1 fa-arrow-down" for="id1"></label>
+                    <input id="id1" type="radio" name="perso1" value="id1" />
+                    <label class="drinkcard-cc id1 fa-arrow-down" for="id1"></label>
+                    <input id="id1" type="radio" name="perso1" value="id1" />
+                    <label class="drinkcard-cc id1 fa-arrow-down" for="id1"></label>
+                </div>
+            </div>
+        </div>
+
+        <div id="form4" class="inactive">
+            <div class="player1-name">
+                <p class="input-title">PLAYER 2 : Choose your personage </p>
+                <div class="cc-selector">
+                    <input id="id2" type="radio" name="perso2" value="id2" />
+                    <label class="drinkcard-cc id2 fa-arrow-down" for="id2"></label>
+                    <input id="id2" type="radio" name="perso2" value="id2" />
+                    <label type="submit" class="drinkcard-cc id2 fa-arrow-down" for="id2"></label>
+                    <input id="id2" type="radio" name="perso2" value="id2" />
+                    <label class="drinkcard-cc id2 fa-arrow-down" for="id2"></label>
+                    <input id="id2" type="radio" name="perso2" value="id2" />
+                    <label class="drinkcard-cc id2 fa-arrow-down" for="id2"></label>
+                </div>
+            </div>
+        </div>
+        <div id="form5" class="inactive">
+            <div class="submit">
+            <button class="bg-blue hover:bg-blue-dark text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                Start Game
+            </button>
+            </div>
+        </div>
+    </div>
+ 
+
+    </form>
+</div>
+
+{% endblock %}
+
+{% block javascript %}<script src="/assets/js/app.js"></script>{% endblock %}

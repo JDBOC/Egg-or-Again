@@ -28,6 +28,10 @@ class HomeController extends AbstractController
         return $this->twig->render('Home/game.html.twig');
     }
 
+    public function start(){
+        return $this->twig->render('Form/formQuatre.html.twig');
+    }
+
 
     public function ajax()
     {

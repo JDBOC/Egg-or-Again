@@ -1,7 +1,7 @@
 // 1. create a new XMLHttpRequest object -- an object like any other!
 var myRequest = new XMLHttpRequest();
 // 2. open the request and pass the HTTP method name and the resource as parameters
-myRequest.open('GET', 'home/ajax');
+myRequest.open('GET', 'home/start');
 // 3. write a function that runs anytime the state of the AJAX request changes
 myRequest.onreadystatechange = function () { 
     // 4. check if the request has a readyState of 4, which indicates the server has responded (complete)
