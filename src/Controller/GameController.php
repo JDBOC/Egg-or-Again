@@ -57,8 +57,8 @@ class GameController extends GuzzleController
                     // ajoute la valeur au compteur secondaire
                     $_SESSION['intermediateCounter']+= self::RARITY_VALUE[$egg->rarity];
                 }
-                $perso1=$this->characterId($_SESSION['perso1']);
-                $perso2=$this->characterId($_SESSION['perso2']);
+                $perso1=$this->characterId($_SESSION['userId1']);
+                $perso2=$this->characterId($_SESSION['userId2']);
 
                 // Initialisation compteurs roll et incrémentation à chaque roll
                 if ($_SESSION['player'] == "player_1") {
@@ -74,8 +74,8 @@ class GameController extends GuzzleController
             }
             if (isset($_POST['hold']) && $_POST['hold']== true) {
                 // ajoute le compteur secondaire au compteur principal
-                $perso1=$this->characterId($_SESSION['perso1']);
-                $perso2=$this->characterId($_SESSION['perso2']);
+                $perso1=$this->characterId($_SESSION['userId1']);
+                $perso2=$this->characterId($_SESSION['userId2']);
                 $_SESSION['player']== "player_1" ? $_SESSION['player1']+= $_SESSION['intermediateCounter']
                                                 : $_SESSION['player2']+= $_SESSION['intermediateCounter'];
 
@@ -101,8 +101,8 @@ class GameController extends GuzzleController
                 }
 
                 // init le compteur secondaire de l'autre joueur, affiche le joueur suivant
-                $perso1=$this->characterId($_SESSION['perso1']);
-                $perso2=$this->characterId($_SESSION['perso2']);
+                $perso1=$this->characterId($_SESSION['userId1']);
+                $perso2=$this->characterId($_SESSION['userId2']);
                 $_SESSION['intermediateCounter'] = 0;
                 $_SESSION['player'] == "player_1"?$_SESSION['player'] = 'player_2'
                                                 :$_SESSION['player'] = 'player_1';

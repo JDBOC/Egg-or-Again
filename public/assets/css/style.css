@@ -223,3 +223,14 @@ i {
     color: red;
     font-weight: bold;
 }
+
+.easter{
+   color: crimson;
+   font-weight:bold;
+   font-style: oblique;
+
+}
+
+.btnEaster{
+opacity: 0;
+}
