@@ -3,10 +3,11 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    background-color: rgb(87,189,130);
 }
 
 .main {
-    background-color: rgb(87,189,130);
+    background-color: #e9eaeb;
     width: 78vw;
     height: 97vh;
     margin-top:10px;
@@ -14,14 +15,14 @@ body {
     border-radius: .25rem;
     font-family: Lato;
     font-weight: 300;
-    color: #e9eaeb;
+    color: #444;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 .main-form-img {
-    background-color: rgb(87,189,130);
+    background-color: #e9eaeb;
     width: 78vw;
     height: 97vh;
     margin-top:10px;
@@ -75,3 +76,25 @@ a:visited{color:#888}
 a{color:#444;text-decoration:none;}
 p{margin-bottom:.3em;}
 
+/* JAVASCRIPT */
+
+/* Définition de l'état standard. */
+.transition-example--message {
+    opacity: 0;
+    transform: translateX(0)
+}
+/* Définition de l'état `.is-displayed`. */
+.transition-example--message.is-displayed {
+    opacity: 1;
+    transform: translateX(200px)
+}
+/* Instruction de transition entrante. */
+.transition-example--message.display-enter-active {
+    /* Nous plaçons les informations de transition ici maintenant. */
+    transition: opacity 1s, transform 1s;
+}
+/* Instruction de transition sortante. */
+.transition-example--message.display-leave-active {
+    /* Nous décidons de masquer le message plus lentement qu'il ne s'affiche. */
+    transition: opacity 4s, transform 4s;
+}

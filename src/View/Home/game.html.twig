@@ -24,7 +24,7 @@
 
 <div class="main clearfix">
     <form action="" method="post">
-        <div class="player-1-left {% if session.player == "player_1" %} active {% endif %}"><!-- TODO TWIG ACTIVE CLASS ?-->
+        <div class="player-1-left {% if session.player == "player_2" %} inactive {% endif %}"><!-- TODO TWIG ACTIVE CLASS ?-->
             <div class="player-name" id="name-0">{{session.username1}}</div>
             <div class="player-score
                 {% if session.player == "player_2" %} pacity0 {% endif %}
@@ -39,7 +39,7 @@
             </div>
         </div>
         
-        <div class="player-2-right {% if session.player == "player_2" %} active {% endif %}"><!-- TODO TWIG ACTIVE CLASS ?-->
+        <div class="player-2-right {% if session.player == "player_1" %} inactive {% endif %}"><!-- TODO TWIG ACTIVE CLASS ?-->
             <div class="player-name" id="name-1">{{session.username2}}  </div>
             <div class="player-score
                 {% if session.player == "player_1" %} pacity0 {% endif %}
@@ -69,4 +69,5 @@
     <!-- https://cdn.shopify.com/s/files/1/0993/5182/products/CXBO_Chocolate_Disco_Egg_large.png?v=1519913456 -->
 </div>
 {% endblock %}
-{% block javascript %}{% endblock %}
+{% block javascript %}<script src="/assets/js/modal.js"></script>
+{% endblock %}

@@ -3,7 +3,7 @@
 {% block stylesheet %}
 <link rel="stylesheet" href="/assets/css/form1.css">
 {# <link rel="stylesheet" href="/assets/css/style.css"> #}
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+{# <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> #}
 <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
 <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
@@ -11,12 +11,11 @@
 {% endblock %}
 {% block content %}
 
-
 <div class="main">
-    <form method="POST" class="w-full max-w-sm">
-        <div class="flex items-center border-b border-b-2 border-white py-2">
-            <input class="appearance-none bg-transparent border-none w-full text-white mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Player 1 Username" aria-label="Full name" name="username1">
-            <button class="flex-no-shrink border-transparent border-4 text-white text-sm py-1 px-2 rounded" type="submit" name='btnForm1' value='true'>
+    <form method="POST" class="w-1/2">
+        <div class="flex items-center border-b border-b-2 border-teal py-2">
+            <input class="appearance-none bg-transparent border-none w-full text-grey-darker mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Player 1 Username" aria-label="Full name" name="username1" required>
+            <button class="w-16 flex-no-shrink bg-teal hover:bg-teal-dark border-teal hover:border-teal-dark text-sm border-4 text-white py-1 px-2 rounded mt-24" type="submit" name='btnForm1' value='true'>
                     Next
             </button>
         </div>
@@ -25,4 +24,4 @@
 
 {% endblock %}
 
-{% block javascript %}<script src="/assets/js/app.js"></script>{% endblock %}
+{% block javascript %}{% endblock %}
