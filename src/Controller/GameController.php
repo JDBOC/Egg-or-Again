@@ -47,12 +47,25 @@ class GameController extends GuzzleController
                     $_SESSION['intermediateCounter']=0;
                     $_SESSION['player'] == "player_1"?$_SESSION['player'] = 'player_2'
                                                     :$_SESSION['player'] = 'player_1';
+                    // Initialisation compteurs perdus et incrémentation à chaque Junk
+                    if ($_SESSION['player'] == "player_1") {
+                        $_SESSION['perdu1'] =+ 1;
+                    } else {
+                        $_SESSION['perdu2'] =+ 1;
+                    }
                 } else {//sinon
                     // ajoute la valeur au compteur secondaire
                     $_SESSION['intermediateCounter']+= self::RARITY_VALUE[$egg->rarity];
                 }
                 $perso1=$this->characterId($_SESSION['perso1']);
                 $perso2=$this->characterId($_SESSION['perso2']);
+
+                // Initialisation compteurs roll et incrémentation à chaque roll
+                if ($_SESSION['player'] == "player_1") {
+                    $_SESSION['roll1'] =+ 1;
+                } else {
+                    $_SESSION['roll2'] =+ 1;
+                }
 
                 return $this->twig->render('Home/game.html.twig', ['session' => $_SESSION,
                                                                     'egg'=>$egg,
@@ -65,16 +78,24 @@ class GameController extends GuzzleController
                 $perso2=$this->characterId($_SESSION['perso2']);
                 $_SESSION['player']== "player_1" ? $_SESSION['player1']+= $_SESSION['intermediateCounter']
                                                 : $_SESSION['player2']+= $_SESSION['intermediateCounter'];
+
+                // Initialisation compteurs hold et incrémentation à chaque hold
+                if ($_SESSION['player'] == "player_1") {
+                    $_SESSION['hold1'] =+ 1;
+                } else {
+                    $_SESSION['hold2'] =+ 1;
+                }
+
                 //Vérifie si le compteur principal atteint 100
                 if ($_SESSION['player1']>99 || $_SESSION['player2']>99) {
                     $_SESSION['player1']>99 ? $_SESSION['winner'] = "player 1" : $_SESSION['winner'] = "player 2";
-                    $scoreManager = new ScoreManager();
+                  //  $scoreManager = new ScoreManager();
                     $values['player1']= $_SESSION['username1'] ;
                     $values['player2']= $_SESSION['username2'] ;
                     $values['score1']= $_SESSION['player1'] ;
                     $values['score2']= $_SESSION['player2'] ;
 
-                    $id = $scoreManager->insert($values);
+                //    $id = $scoreManager->insert($values);
                     return $this->twig->render('Home/win.html.twig', ['session' => $_SESSION]);
                 }
 
@@ -90,6 +111,12 @@ class GameController extends GuzzleController
             }
         }
         // ici c'est le 1er round
+        $_SESSION['roll1']=0;
+        $_SESSION['roll2']=0;
+        $_SESSION['hold1']=0;
+        $_SESSION['hold2']=0;
+        $_SESSION['perdu1']=0;
+        $_SESSION['perdu2']=0;
         $_SESSION['player'] = "player_1";
         $_SESSION['intermediateCounter'] = 0;
         $_SESSION['player1']=0;
