@@ -1,18 +1,18 @@
 {% extends 'layout.html.twig' %}
 
 {% block stylesheet %}
-<link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
-<link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
 {% endblock %}
 
 
-{% block content %} 
+{% block content %}
 
-<div class="main clearfix">
-	<div id="winner">
-		<h1 class="winner">{{session.winner}} wins !!!</h1>
-		<p><a href="/game/index"> retour au jeu</a></p>
-	</div>
-</div>
+    <div class="main clearfix">
+        <div id="winner">
+            <h1 class="winner">{{session.winner}} wins !!!</h1>
+            <p><a href="/game/index"> retour au jeu</a></p>
+        </div>
+    </div>
 
 {% endblock %}
