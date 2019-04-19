@@ -56,6 +56,9 @@
         
         <button class="btn-play" name="play" value="true"><i class="ion-ios-loop"></i>Roll Eggs</button>
         <button class="btn-hold" name="hold" value="true"><i class="ion-ios-download-outline"></i>Hold</button>
+       <!-- TEST --> 
+       
+
         
 
         <img src="{{egg.image}}" alt="" class="image movingEgg" id="image">
@@ -65,8 +68,19 @@
         ">{{egg.rarityValue}}</p>
 
     </form>
+
+    
     
     <!-- https://cdn.shopify.com/s/files/1/0993/5182/products/CXBO_Chocolate_Disco_Egg_large.png?v=1519913456 -->
+</div>
+<div class=" btnEaster">
+ <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Small modal</button>
+<div class="modal fade bd-example-modal-sm" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm" data-keyboard="true">
+        <div class="modal-content">
+        <p class="easter">+[----->+++<]>+++.+++++.++++++++++.--[->+++<]>.[--->+<]>--.--.++++[->+++<]>.[--->+<]>----.+[---->+<]>+++.[-->+++++++<]>.+[->++<]>.[-->+<]>.++++.++[->+++<]>.[--->+<]>----.<br />(Joyeuses Pâques en Brainfuck) </p>
+        </div>
+    </div>
 </div>
 {% endblock %}
 {% block javascript %}{% endblock %}
