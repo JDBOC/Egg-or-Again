@@ -33,7 +33,7 @@
             </div>
             <div class="box-img-player-1"></div>
             <div class="panier-box box-player-1">
-                <div class="panier">Pannier</div>
+                <div class="panier">Panier</div>
                 <div class="score" id="score-ingame-player-1">{{session.player1}}</div>
             </div>
         </div>
@@ -57,9 +57,11 @@
         <button class="btn-hold" name="hold" value="true"><i class="ion-ios-download-outline"></i>Hold</button>
         
 
-        <img src="{{egg.image}}" alt="" class="image" id="image">
-        <p class="egg-name">{{egg.name}}</p>
-        <p class="egg-point">{{egg.rarityValue}}</p>
+        <img src="{{egg.image}}" alt="" class="image movingEgg" id="image">
+        <p class="egg-name ">{{egg.name}}</p>
+        <p class="egg-point 
+{% if egg.rarity == "junk" %} lost  {% endif %}
+        ">{{egg.rarityValue}}</p>
 
     </form>
     

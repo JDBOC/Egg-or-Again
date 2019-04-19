@@ -17,7 +17,7 @@ use App\Model\ItemManager;
  */
 class GameController extends GuzzleController
 {
-    const     RARITY_VALUE =['junk'=>0,
+    const     RARITY_VALUE =['junk'=>'YOU LOSE, NEXT PLAYER !',
                         'basic'=>1,
                         'fine' =>2,
                         'masterwork' =>3,
@@ -53,6 +53,7 @@ class GameController extends GuzzleController
                 }
                 $perso1=$this->characterId($_SESSION['perso1']);
                 $perso2=$this->characterId($_SESSION['perso2']);
+
                 return $this->twig->render('Home/game.html.twig', ['session' => $_SESSION,
                                                                     'egg'=>$egg,
                                                             'perso1' =>$perso1,
@@ -92,7 +93,6 @@ class GameController extends GuzzleController
         $_SESSION['perso2']="5cac51240d488f0da6151c32";
         $perso1=$this->characterId($_SESSION['perso1']);
         $perso2=$this->characterId($_SESSION['perso2']);
-        var_dump($_SESSION['perso1']);
         return $this->twig->render('Home/game.html.twig', ['session' => $_SESSION,
                                                             'perso1' =>$perso1,
                                                             'perso2' =>$perso2]);

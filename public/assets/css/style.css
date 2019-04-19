@@ -13,6 +13,7 @@ body {
     position: relative;
     height: 100vh;
     color: #e9eaeb;
+    background-image: url('https://c.pxhere.com/photos/14/27/marbled_easter_eggs_marbled_easter_eggs_colored_colorful_color_easter_marbling_color-814213.jpg!d') ;
 }
 
 .clearfix::after {
@@ -150,7 +151,7 @@ i {
     height: 200px;
     background: transparent;
     left: 50%;
-    top: 80px;
+    top: 60px;
     height: 200px;
 }
 
@@ -193,4 +194,28 @@ i {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+}
+
+@keyframes masuperanimation {
+    0% { transform: translateX(-100%); }
+
+    20% { transform: rotate(-30deg); }
+
+    40% { transform: rotate(30deg); }
+
+    60% { transform: rotate(-30deg); }
+
+    80% {transform: rotate(0deg); }
+
+    100% { transform: translateX(-50%); }
+}
+
+.movingEgg
+{
+    animation: masuperanimation 1.5s; /* On utilise "ma super animation" définie plus tôt */
+}
+
+.lost{
+    color: red;
+    font-weight: bold;
 }

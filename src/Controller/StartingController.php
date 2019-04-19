@@ -13,7 +13,7 @@ class StartingController extends GuzzleController
     public function chooseCharacter()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if (isset($_POST['username'])) {
+            if (isset($_POST['username1'])) {
                 // Tape un username
                 $_SESSION['username1']=$_POST['username1'];
                 $_SESSION['username2']=$_POST['username2'];
