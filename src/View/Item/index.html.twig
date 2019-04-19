@@ -6,7 +6,9 @@
         {% for item in items %}
             <li><a href="/item/show/{{ item.id }}">{{ item.id }}. {{ item.title }}</a></li>
         {% else %}
-            <li>Nothing to display</li>
+            <li>
+                {{ dump(session) }}
+            </li>
         {% endfor %}
     </ul>
     <a href="/item/add">Ajouter</a>
