@@ -1,44 +1,50 @@
 {% extends 'layout.html.twig' %}
 
 {% block stylesheet %}
+    <link rel="stylesheet" href="/assets/css/form1.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
     <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
 {% endblock %}
 
 
 {% block content %}
 
-    <div class="main clearfix">
-        <div id="winner">
-            <h1 class="winner">{{session.winner}} wins !!!</h1>
-            <p><a href="/game/index"> retour au jeu</a></p>
-
-        <table class="table">
-            <thead>
-            <tr>
-                <th></th>
-                <th scope="col">Player 1</th>
-                <th scope="col">Player 2</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td scope="row">Rolls</td>
-                <td> {{ session.roll1 }} </td>
-                <td> {{ session.roll2 }} </td>
-            </tr>
-            <tr>
-                <td scope="row">Holds</td>
-                <td> {{ session.hold1 }} </td>
-                <td> {{ session.hold2 }} </td>
-            </tr>
-            <tr>
-                <td scope="row">Losts</td>
-                <td> {{ session.perdu1 }} </td>
-                <td> {{ session.perdu2 }} </td>
-            </tr>
-            </tbody>
-        </table>
+    <div class="main flex flex-row flex-wrap justify-center items-center">
+        <div class="flex flex-row justify-center items-center w-1/2">
+            <div class="w-full flex flex-row justify-center items-center">
+            <h1 class="uppercase text-3xl">{{session.winner}} wins !!!</h1>
+            <p class="ml-5 uppercase text-3xl"><a href="/game/index"> retour au jeu</a></p>
+            </div>
+        </div>
+        <div class="w-4/5">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th scope="col">Player 1</th>
+                        <th scope="col">Player 2</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td scope="row">Rolls</td>
+                        <td> {{ session.roll1 }} </td>
+                        <td> {{ session.roll2 }} </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Holds</td>
+                        <td> {{ session.hold1 }} </td>
+                        <td> {{ session.hold2 }} </td>
+                    </tr>
+                    <tr>
+                        <td scope="row">Losts</td>
+                        <td> {{ session.perdu1 }} </td>
+                        <td> {{ session.perdu2 }} </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 
