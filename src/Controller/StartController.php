@@ -8,9 +8,9 @@
 
 namespace App\Controller;
 
-class StartingController extends GuzzleController
+class StartController extends GuzzleController
 {
-    public function chooseCharacter()
+    public function newGame()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['btnForm1']) && $_POST['btnForm1']== true) {
@@ -67,6 +67,8 @@ class StartingController extends GuzzleController
         }
         $_SESSION['charList1']=$list1;
         $_SESSION['charList2']=$list2;
+        $_SESSION['idList2']=$idList2;
+        $_SESSION['idList1']=$idList1;
         return $this->twig->render(
             'Form/formUn.html.twig',
             ['characters1' => $_SESSION['charList1'], 'characters2' => $_SESSION['charList2']]

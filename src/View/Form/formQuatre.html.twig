@@ -20,17 +20,17 @@
 <div class="main-form-img">
     <form method="POST" class="w-full flex flex-row flex-wrap justify-center">
         <div class="w-full mt-10 flex flex-row flex-wrap justify-center text-4xl">
-            {{ session.username2 }} pick your personage
+            {{ session.username2 }} ,pick your avatar
         </div>
         <div class="w-full h-5 flex flex-row flex-no-wrap justify-center">
             <div class="img-selector">
-                <input id="img1" type="radio" name="userId2" value="id1" />
+                <input id="img1" type="radio" name="userId2" value="{{session.idList2[0]}}" />
                 <label class="drinkcard-cc img1" for="img1"></label>
-                <input id="img2" type="radio" name="userId2" value="id2" />
+                <input id="img2" type="radio" name="userId2" value="{{session.idList2[1]}}" />
                 <label class="drinkcard-cc img2"for="img2"></label>
-                <input id="img3" type="radio" name="userId2" value="id3" />
+                <input id="img3" type="radio" name="userId2" value="{{session.idList2[2]}}" />
                 <label class="drinkcard-cc img3" for="img3"></label>
-                <input id="img4" type="radio" name="userId2" value="id4" />
+                <input id="img4" type="radio" name="userId2" value="{{session.idList2[3]}}" />
                 <label class="drinkcard-cc img4"for="img4"></label>
             </div>
         </div>
