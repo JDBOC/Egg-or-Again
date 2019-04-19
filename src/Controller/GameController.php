@@ -69,8 +69,8 @@ class GameController extends GuzzleController
                 if ($_SESSION['player1']>99 || $_SESSION['player2']>99) {
                     $_SESSION['player1']>99 ? $_SESSION['winner'] = "player 1" : $_SESSION['winner'] = "player 2";
                     $scoreManager = new ScoreManager();
-                    $values['player1']= $_SESSION['perso1'] ;
-                    $values['player2']= $_SESSION['perso2'] ;
+                    $values['player1']= $_SESSION['username1'] ;
+                    $values['player2']= $_SESSION['username2'] ;
                     $values['score1']= $_SESSION['player1'] ;
                     $values['score2']= $_SESSION['player2'] ;
 
