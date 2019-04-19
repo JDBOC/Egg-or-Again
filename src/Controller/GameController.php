@@ -49,9 +49,9 @@ class GameController extends GuzzleController
                                                     :$_SESSION['player'] = 'player_1';
                     // Initialisation compteurs perdus et incrémentation à chaque Junk
                     if ($_SESSION['player'] == "player_1") {
-                        $_SESSION['perdu1'] += 1;
-                    } else {
                         $_SESSION['perdu2'] += 1;
+                    } else {
+                        $_SESSION['perdu1'] += 1;
                     }
                 } else {//sinon
                     // ajoute la valeur au compteur secondaire
