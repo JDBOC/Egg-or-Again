@@ -14,6 +14,6 @@
  */
 
 define('APP_DB_USER', 'root');
-define('APP_DB_PWD', '');
-define('APP_DB_HOST', 'localhost:3306');
-define('APP_DB_NAME', 'mvc_playground');
+define('APP_DB_PWD', 'anGBand@42');
+define('APP_DB_HOST', 'localhost');
+define('APP_DB_NAME', 'eggProject');

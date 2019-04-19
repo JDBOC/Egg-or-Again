@@ -9,7 +9,7 @@
 
 namespace App\Controller;
 
-use App\Model\ItemManager;
+use App\Model\ScoreManager;
 
 /**
  * Class ItemController
@@ -68,6 +68,13 @@ class GameController extends GuzzleController
                 //Vérifie si le compteur principal atteint 100
                 if ($_SESSION['player1']>99 || $_SESSION['player2']>99) {
                     $_SESSION['player1']>99 ? $_SESSION['winner'] = "player 1" : $_SESSION['winner'] = "player 2";
+                    $scoreManager = new ScoreManager();
+                    $values['player1']= $_SESSION['perso1'] ;
+                    $values['player2']= $_SESSION['perso2'] ;
+                    $values['score1']= $_SESSION['player1'] ;
+                    $values['score2']= $_SESSION['player2'] ;
+
+                    $id = $scoreManager->insert($values);
                     return $this->twig->render('Home/win.html.twig', ['session' => $_SESSION]);
                 }
 

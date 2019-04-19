@@ -13,15 +13,30 @@ class StartingController extends GuzzleController
     public function chooseCharacter()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            if (isset($_POST['username1'])) {
-                // Tape un username
+            if (isset($_POST['btnForm1']) && $_POST['btnForm1']== true) {
                 $_SESSION['username1']=$_POST['username1'];
-                $_SESSION['username2']=$_POST['username2'];
+                return $this->twig->render('Home/form.html.twig');
             }
-                // Recupère l'id personnage
-            $_SESSION['userId1'] = $_POST['userId1'];
-            $_SESSION['userId2'] = $_POST['userId2'];
         }
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_POST['btnForm2']) && $_POST['btnForm2']== true) {
+                $_SESSION['username2']=$_POST['username2'];
+                return $this->twig->render('Home/form.html.twig');
+            }
+        }
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_POST['btnForm3']) && $_POST['btnForm3']== true) {
+                $_SESSION['userId1'] = $_POST['userId1'];
+                return $this->twig->render('Home/form.html.twig');
+            }
+        }
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            if (isset($_POST['btnForm4']) && $_POST['btnForm4']== true) {
+                $_SESSION['userId2'] = $_POST['userId2'];
+                return $this->twig->render('Home/form.html.twig');
+            }
+        }
+        
         // Affiche 4 cartes de personnages aléatoire pour le joueur 1
         $list1 = [];
         $idList1 = [];
