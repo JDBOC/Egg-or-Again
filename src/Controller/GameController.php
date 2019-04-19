@@ -49,9 +49,9 @@ class GameController extends GuzzleController
                                                     :$_SESSION['player'] = 'player_1';
                     // Initialisation compteurs perdus et incrémentation à chaque Junk
                     if ($_SESSION['player'] == "player_1") {
-                        $_SESSION['perdu1'] =+ 1;
+                        $_SESSION['perdu1'] += 1;
                     } else {
-                        $_SESSION['perdu2'] =+ 1;
+                        $_SESSION['perdu2'] += 1;
                     }
                 } else {//sinon
                     // ajoute la valeur au compteur secondaire
@@ -62,9 +62,9 @@ class GameController extends GuzzleController
 
                 // Initialisation compteurs roll et incrémentation à chaque roll
                 if ($_SESSION['player'] == "player_1") {
-                    $_SESSION['roll1'] =+ 1;
+                    $_SESSION['roll1'] += 1;
                 } else {
-                    $_SESSION['roll2'] =+ 1;
+                    $_SESSION['roll2'] += 1;
                 }
 
                 return $this->twig->render('Home/game.html.twig', ['session' => $_SESSION,
@@ -81,14 +81,15 @@ class GameController extends GuzzleController
 
                 // Initialisation compteurs hold et incrémentation à chaque hold
                 if ($_SESSION['player'] == "player_1") {
-                    $_SESSION['hold1'] =+ 1;
+                    $_SESSION['hold1'] += 1;
                 } else {
-                    $_SESSION['hold2'] =+ 1;
+                    $_SESSION['hold2'] += 1;
                 }
 
                 //Vérifie si le compteur principal atteint 100
                 if ($_SESSION['player1']>99 || $_SESSION['player2']>99) {
-                    $_SESSION['player1']>99 ? $_SESSION['winner'] = "player 1" : $_SESSION['winner'] = "player 2";
+                    $_SESSION['player1']>99 ? $_SESSION['winner'] = $_SESSION['username1']
+                                            : $_SESSION['winner'] = $_SESSION['username2'];
                   //  $scoreManager = new ScoreManager();
                     $values['player1']= $_SESSION['username1'] ;
                     $values['player2']= $_SESSION['username2'] ;
