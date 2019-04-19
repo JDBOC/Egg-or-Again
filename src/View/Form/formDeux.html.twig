@@ -13,10 +13,10 @@
 
 
 <div class="main">
-    <form methode="POST" class="w-full max-w-sm">
-        <div class="flex items-center border-b border-b-2 border-black py-2">
-            <input class="text-2xl appearance-none bg-transparent border-none w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Player 2 Username" aria-label="Full name" name="username2">
-            <button class="flex-no-shrink border-transparent border-8 text-black text-2xl text-sm py-1 px-2 rounded" type="submit" name='btnForm2' value='true'>
+    <form method="POST" class="w-1/2">
+        <div class="flex items-center border-b border-b-2 border-teal py-2">
+            <input class="appearance-none bg-transparent border-none w-full text-grey-darker mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Player 2 Username" aria-label="Full name" name="username2" required>
+            <button class=" w-16 flex-no-shrink bg-teal hover:bg-teal-dark border-teal hover:border-teal-dark text-sm border-4 text-white py-1 px-2 rounded mt-24" type="submit" name='btnForm2' value='true'>
                     Next
             </button>
         </div>
@@ -25,4 +25,4 @@
 
 {% endblock %}
 
-{% block javascript %}<script src="/assets/js/app.js"></script>{% endblock %}
+{% block javascript %}{% endblock %}
