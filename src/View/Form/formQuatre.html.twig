@@ -11,16 +11,16 @@
 {% endblock %}
 {% block content %}
 <style>
-.img1{background-image:url(https://images.innoveduc.fr/easter_hackathon/4262699-a86be31143ba35176665964cfa29516a-d5qg94n.jpg);}
-.img2{background-image:url(https://images.innoveduc.fr/easter_hackathon/4262699-a86be31143ba35176665964cfa29516a-d5qg94n.jpg);}
-.img3{background-image:url(https://images.innoveduc.fr/easter_hackathon/4262699-a86be31143ba35176665964cfa29516a-d5qg94n.jpg);}
-.img4{background-image:url(https://images.innoveduc.fr/easter_hackathon/4262699-a86be31143ba35176665964cfa29516a-d5qg94n.jpg);}
+{% for character in session.charList2 %}
+.img{{ loop.index }} {  background-image:url( {{ character.image }} );}
+
+{% endfor %}
 </style>
 
 <div class="main-form-img">
     <form method="POST" class="w-full flex flex-row flex-wrap justify-center">
         <div class="w-full mt-10 flex flex-row flex-wrap justify-center text-4xl">
-            {{ username2 }} pick your personage
+            {{ session.username2 }} pick your personage
         </div>
         <div class="w-full h-5 flex flex-row flex-no-wrap justify-center">
             <div class="img-selector">
@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class=" w-full mt-24 h-10 flex flex-row flex-no-wrap justify-center">
-            <button class="flex-no-shrink border-transparent border-4 text-white text-2xl py-1 px-2 rounded" type="submit" name='btnForm2' value='true'>
+            <button class="flex-no-shrink border-transparent border-4 text-white text-2xl py-1 px-2 rounded" type="submit" name='btnForm4' value='true'>
                     Start Game
             </button>
         </div>

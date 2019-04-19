@@ -16,33 +16,32 @@ class StartingController extends GuzzleController
             if (isset($_POST['btnForm1']) && $_POST['btnForm1']== true) {
                 $_SESSION['username1']=$_POST['username1'];
                 return $this->twig->render(
-                    'Form/formDeux.html.twig',
-                    ['characters1' => $_SESSION['charList1'], 'characters2' => $_SESSION['charList2']]
+                    'Form/formDeux.html.twig'
                 );
             }
         }
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['btnForm2']) && $_POST['btnForm2']== true) {
                 $_SESSION['username2']=$_POST['username2'];
-                        return $this->twig->render(
-                            'Form/formTrois.html.twig',
-                            ['characters1' => $_SESSION['charList1'], ['username1'=>$_SESSION['username1']]]
-                        );
+                return $this->twig->render(
+                    'Form/formTrois.html.twig',
+                    [ 'session'=>$_SESSION]
+                );
             }
         }
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['btnForm3']) && $_POST['btnForm3']== true) {
                 $_SESSION['userId1'] = $_POST['userId1'];
                 return $this->twig->render(
-                    'Form/formTrois.html.twig',
-                    ['characters2' => $_SESSION['charList2'], ['username2'=>$_SESSION['username2']]]
+                    'Form/formQuatre.html.twig',
+                    ['session'=>$_SESSION]
                 );
             }
         }
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if (isset($_POST['btnForm4']) && $_POST['btnForm4']== true) {
                 $_SESSION['userId2'] = $_POST['userId2'];
-                return $this->twig->render('Home/game.html.twig');
+                header('location:/game/index');
             }
         }
         
