@@ -58,23 +58,23 @@ class GuzzleController extends AbstractController
 
         $response = $client->request('GET', 'characters/');
         $body = $response->getBody();
-        $eggs=json_decode($body->getContents());
+        $chars=json_decode($body->getContents());
 
 
-        return $eggs;
+        return $chars;
     }
 
 
     public function characterId($id)
     {
         $client = new Client(['base_uri' => 'http://easteregg.wildcodeschool.fr/api/',]);
-        $uri='character/'.$id;
+        $uri='characters/'.$id;
         $response = $client->request('GET', $uri);
         $body = $response->getBody();
-        $eggs=json_decode($body->getContents());
+        $chars=json_decode($body->getContents());
 
 
-        return $eggs;
+        return $chars;
     }
 
 
@@ -84,9 +84,9 @@ class GuzzleController extends AbstractController
 
         $response = $client->request('GET', 'characters/random');
         $body = $response->getBody();
-        $eggs=json_decode($body->getContents());
+        $chars=json_decode($body->getContents());
 
 
-        return $eggs;
+        return $chars;
     }
 }

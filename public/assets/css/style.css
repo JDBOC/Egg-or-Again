@@ -13,6 +13,7 @@ body {
     position: relative;
     height: 100vh;
     color: #e9eaeb;
+    background-image: url('https://c.pxhere.com/photos/14/27/marbled_easter_eggs_marbled_easter_eggs_colored_colorful_color_easter_marbling_color-814213.jpg!d') ;
 }
 
 .clearfix::after {
@@ -154,7 +155,7 @@ i {
     height: 200px;
     background: transparent;
     left: 50%;
-    top: 80px;
+    top: 60px;
     height: 200px;
 }
 
@@ -171,7 +172,7 @@ i {
     position: absolute;
     left:50%;
     top: 270px;
-    color: #555;;
+    color: #555;
     transform: translateX(-50%);
     text-transform: uppercase;
 }
@@ -185,66 +186,40 @@ i {
     text-transform: uppercase;
 }
 
-/* MODAL*/
+.pacity0{
+    opacity: 0;
+}
 
-.modal {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 990;
-  }
-  
-  .modal .overlay {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 995;
-    background: rgba(0,0,0,0.85);
-  }
-  
-  .modal .modal_content {
-    z-index: 999;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-height: 90%;
-    overflow: auto;
-    background: #fff;
-    box-sizing: border-box;
-    padding: 20px;
-    box-shadow: 0 1px 5px rgba(0,0,0,0.7);
-    border-radius: 4px;
-    width: 520px; /* This just a default width */
-  }
-  
-  .modal .modal_content > h2 {
-    font-size: 28px;
-    font-weight: 200;
-    margin: 20px 0 40px;
-    text-align: center;
-  }
-  
-  .modal .modal_content .buttons_wrapper {
-    padding: 20px;
-  }
-  
-  .modal .close_modal {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    cursor: pointer;
-    font-size: 18px;
-    opacity: 0.5;
-    background: none;
-    border: none;
-    transition: opacity 0.2s ease;
-  }
-  
-  .modal .close_modal:hover {
-    opacity: 0.9;
-  }
+#winner{
+    height: 97vh;
+    width: 1000px;
+    background-color: rgb(87,189,130);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes masuperanimation {
+    0% { transform: translateX(-100%); }
+
+    20% { transform: rotate(-30deg); }
+
+    40% { transform: rotate(30deg); }
+
+    60% { transform: rotate(-30deg); }
+
+    80% {transform: rotate(0deg); }
+
+    100% { transform: translateX(-50%); }
+}
+
+.movingEgg
+{
+    animation: masuperanimation 1.5s; /* On utilise "ma super animation" définie plus tôt */
+}
+
+.lost{
+    color: red;
+    font-weight: bold;
+}
